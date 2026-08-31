@@ -1,0 +1,180 @@
+.filters {
+  width: 100%;
+  max-width: 360px;
+}
+
+.locationGroup {
+  margin-bottom: 32px;
+}
+
+.locationLabel {
+  display: block;
+
+  margin-bottom: 8px;
+
+  color: var(--color-gray);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.locationWrapper {
+  position: relative;
+}
+
+.locationIcon {
+  position: absolute;
+  top: 50%;
+  left: 18px;
+
+  transform: translateY(-50%);
+
+  color: var(--color-main);
+
+  pointer-events: none;
+}
+
+.locationInput {
+  width: 100%;
+  height: 56px;
+
+  padding: 0 18px 0 46px;
+
+  border-radius: 12px;
+
+  background-color: var(--color-inputs);
+
+  color: var(--color-main);
+
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.locationInput::placeholder {
+  color: var(--color-gray);
+}
+
+.title {
+  margin-bottom: 24px;
+
+  color: var(--color-main);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+
+  margin: 0 0 24px;
+  padding: 0;
+
+  border: 0;
+}
+
+.legend {
+  margin-bottom: 8px;
+
+  color: var(--color-gray);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.radioLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  width: fit-content;
+
+  color: var(--color-main);
+
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+
+  cursor: pointer;
+}
+
+.radioLabel input {
+  width: 18px;
+  height: 18px;
+
+  margin: 0;
+
+  accent-color: var(--color-button);
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  margin-top: 32px;
+}
+
+.searchButton,
+.clearButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 56px;
+
+  border-radius: 200px;
+
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.searchButton {
+  background-color: var(--color-button);
+  color: var(--color-white);
+
+  transition: background-color 200ms ease;
+}
+
+.searchButton:hover,
+.searchButton:focus-visible {
+  background-color: var(--color-button-hover);
+}
+
+.clearButton {
+  gap: 8px;
+
+  border: 1px solid var(--color-border);
+
+  background-color: var(--color-white);
+  color: var(--color-main);
+
+  transition: border-color 200ms ease;
+}
+
+.clearButton:hover,
+.clearButton:focus-visible {
+  border-color: var(--color-button);
+}
+
+@media (max-width: 768px) {
+  .filters {
+    max-width: 260px;
+  }
+
+  .searchButton,
+  .clearButton {
+    height: 52px;
+  }
+}
+
+@media (max-width: 600px) {
+  .filters {
+    max-width: none;
+  }
+}
