@@ -1,7 +1,5 @@
+import Hero from '@/components/pages/home-page/Hero/Hero';
+
 export default function HomePage() {
-  return (
-    <section>
-      <h1>TravelTrucks</h1>
-    </section>
-  );
+  return <Hero />;
 }
