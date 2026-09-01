@@ -1,0 +1,115 @@
+.gallery {
+  width: 100%;
+  min-width: 0;
+}
+
+.mainSwiper {
+  width: 100%;
+
+  --swiper-navigation-size: 24px;
+  --swiper-navigation-color: var(--color-white);
+}
+
+.mainImage {
+  width: 100%;
+  height: 500px;
+
+  overflow: hidden;
+
+  border-radius: 20px;
+}
+
+.image {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.thumbsSwiper {
+  width: 100%;
+  margin-top: 24px;
+}
+
+.thumb {
+  width: 100%;
+  height: 100px;
+
+  padding: 0;
+
+  overflow: hidden;
+
+  border: 2px solid transparent;
+  border-radius: 12px;
+
+  background-color: transparent;
+
+  cursor: pointer;
+
+  transition: border-color 200ms ease;
+}
+
+.thumb:hover,
+.thumb:focus-visible {
+  border-color: var(--color-button);
+}
+
+/* активная миниатюра Swiper */
+.thumbsSwiper :global(.swiper-slide-thumb-active) .thumb {
+  border-color: var(--color-button);
+}
+
+/* стрелки */
+
+.mainSwiper :global(.swiper-button-prev),
+.mainSwiper :global(.swiper-button-next) {
+  width: 44px;
+  height: 44px;
+
+  border-radius: 50%;
+
+  background-color: rgba(16, 24, 40, 0.45);
+
+  transition: background-color 200ms ease;
+}
+
+.mainSwiper :global(.swiper-button-prev:hover),
+.mainSwiper :global(.swiper-button-next:hover) {
+  background-color: rgba(16, 24, 40, 0.7);
+}
+
+.mainSwiper :global(.swiper-button-disabled) {
+  opacity: 0.35;
+}
+
+@media (max-width: 768px) {
+  .mainImage {
+    height: 420px;
+  }
+
+  .thumb {
+    height: 90px;
+  }
+}
+
+@media (max-width: 375px) {
+  .mainImage {
+    height: 260px;
+  }
+
+  .thumbsSwiper {
+    margin-top: 16px;
+  }
+
+  .thumb {
+    height: 72px;
+  }
+
+  .mainSwiper :global(.swiper-button-prev),
+  .mainSwiper :global(.swiper-button-next) {
+    width: 36px;
+    height: 36px;
+  }
+}

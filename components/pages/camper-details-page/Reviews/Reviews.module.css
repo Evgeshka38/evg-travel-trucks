@@ -1,0 +1,116 @@
+.reviews {
+  width: 100%;
+}
+
+.title {
+  margin-bottom: 24px;
+
+  color: var(--color-main);
+
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.item {
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background-color: var(--color-inputs);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  margin-bottom: 16px;
+}
+
+.avatar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 48px;
+  height: 48px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background-color: var(--color-white);
+  color: var(--color-button);
+
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.name {
+  margin-bottom: 4px;
+
+  color: var(--color-main);
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.starActive,
+.starInactive {
+  width: 16px;
+  height: 16px;
+}
+
+.starActive {
+  color: var(--color-rating);
+}
+
+.starInactive {
+  color: var(--color-border);
+}
+
+.comment {
+  color: var(--color-text);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.empty {
+  color: var(--color-text);
+
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .item {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 375px) {
+  .item {
+    padding: 16px;
+  }
+
+  .avatar {
+    width: 44px;
+    height: 44px;
+  }
+}

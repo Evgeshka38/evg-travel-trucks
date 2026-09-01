@@ -6,6 +6,7 @@ import {
 
 import Header from '@/components/layout/Header/Header';
 import TanStackProvider from '@/lib/providers/TanStackProvider';
+import { Toaster } from 'react-hot-toast';
 
 import './globals.css';
 
@@ -45,6 +46,7 @@ export default function RootLayout({
           <Header />
 
           <main>{children}</main>
+          <Toaster position="top-right" />
         </TanStackProvider>
       </body>
     </html>

@@ -57,11 +57,48 @@ export interface CamperGalleryItem {
   order: number;
 }
 
-export interface CamperDetails
-  extends Omit<CamperListItem, 'coverImage'> {
+export interface CamperDetails {
+  id: string;
+  name: string;
+  price: number;
+  rating: number;
+  totalReviews: number;
+  location: string;
   description: string;
+
+  form: CamperForm;
+
+  length: string;
+  width: string;
+  height: string;
+  tank: string;
+  consumption: string;
+
+  transmission: CamperTransmission;
+  engine: CamperEngine;
+
+  amenities: CamperAmenity[];
+
   gallery: CamperGalleryItem[];
 
   createdAt: string;
   updatedAt: string;
+}
+
+export interface CamperReview {
+  id: string;
+  camperId: string;
+  reviewer_name: string;
+  reviewer_rating: number;
+  comment: string;
+  createdAt: string;
+}
+
+export interface BookingRequest {
+  name: string;
+  email: string;
+}
+
+export interface BookingResponse {
+  message: string;
 }

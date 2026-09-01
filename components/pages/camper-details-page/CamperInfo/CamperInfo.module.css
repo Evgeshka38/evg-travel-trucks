@@ -1,0 +1,50 @@
+.info {
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background-color: var(--color-inputs);
+}
+
+.title {
+  margin-bottom: 8px;
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.33;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+
+  font-size: 16px;
+}
+
+.rating,
+.location {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.star {
+  color: var(--color-rating);
+}
+
+.price {
+  margin-top: 16px;
+
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.description {
+  margin-top: 24px;
+
+  color: var(--color-text);
+
+  font-size: 16px;
+  line-height: 1.5;
+}
