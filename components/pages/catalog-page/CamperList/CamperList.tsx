@@ -2,13 +2,22 @@
 
 import { useInfiniteQuery } from '@tanstack/react-query';
 
-import { getCampers } from '@/lib/api/campersApi';
+import {
+  getCampers,
+  type CampersFilters,
+} from '@/lib/api/campersApi';
 
 import CamperCard from '../CamperCard/CamperCard';
 
 import css from './CamperList.module.css';
 
-export default function CamperList() {
+type CamperListProps = {
+  filters: CampersFilters;
+};
+
+export default function CamperList({
+  filters,
+}: CamperListProps) {
   const {
     data,
     fetchNextPage,
@@ -17,17 +26,23 @@ export default function CamperList() {
     isPending,
     isError,
   } = useInfiniteQuery({
-    queryKey: ['campers'],
+    queryKey: [
+      'campers',
+      filters,
+    ],
 
     queryFn: ({ pageParam }) =>
       getCampers({
         page: pageParam,
         perPage: 4,
+        ...filters,
       }),
 
     initialPageParam: 1,
 
-    getNextPageParam: (lastPage) => {
+    getNextPageParam: (
+      lastPage
+    ) => {
       if (
         lastPage.page >=
         lastPage.totalPages
@@ -60,22 +75,34 @@ export default function CamperList() {
       (page) => page.campers
     );
 
+  if (campers.length === 0) {
+    return (
+      <p className={css.status}>
+        No campers found.
+      </p>
+    );
+  }
+
   return (
     <div className={css.wrapper}>
       <ul className={css.list}>
-        {campers.map((camper) => (
-          <li key={camper.id}>
-            <CamperCard
-              camper={camper}
-            />
-          </li>
-        ))}
+        {campers.map(
+          (camper) => (
+            <li key={camper.id}>
+              <CamperCard
+                camper={camper}
+              />
+            </li>
+          )
+        )}
       </ul>
 
       {hasNextPage && (
         <button
           type="button"
-          className={css.loadMore}
+          className={
+            css.loadMore
+          }
           onClick={() =>
             fetchNextPage()
           }
