@@ -13,15 +13,36 @@ export default function CatalogContent() {
   const [filters, setFilters] =
     useState<CampersFilters>({});
 
+  const [filtersResetKey, setFiltersResetKey] =
+    useState(0);
+
+  function handleSearch(
+    newFilters: CampersFilters
+  ) {
+    setFilters(newFilters);
+  }
+
+  function handleClearAllFilters() {
+    setFilters({});
+
+    setFiltersResetKey(
+      (previousKey) => previousKey + 1
+    );
+  }
+
   return (
     <div className={css.container}>
       <Filters
-        onSearch={setFilters}
+        key={filtersResetKey}
+        onSearch={handleSearch}
       />
 
       <div className={css.content}>
         <CamperList
           filters={filters}
+          onClearFilters={
+            handleClearAllFilters
+          }
         />
       </div>
     </div>

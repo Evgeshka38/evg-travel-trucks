@@ -5,9 +5,6 @@
 
 .mainSwiper {
   width: 100%;
-
-  --swiper-navigation-size: 24px;
-  --swiper-navigation-color: var(--color-white);
 }
 
 .mainImage {
@@ -33,15 +30,19 @@
   margin-top: 24px;
 }
 
+.thumbsSwiper :global(.swiper-slide) {
+  width: 136px;
+}
+
 .thumb {
-  width: 100%;
-  height: 100px;
+  width: 136px;
+  height: 144px;
 
   padding: 0;
 
   overflow: hidden;
 
-  border: 2px solid transparent;
+  border: 3px solid transparent;
   border-radius: 12px;
 
   background-color: transparent;
@@ -53,46 +54,31 @@
 
 .thumb:hover,
 .thumb:focus-visible {
-  border-color: var(--color-button);
+  border-color: #829b91;
 }
 
-/* активная миниатюра Swiper */
 .thumbsSwiper :global(.swiper-slide-thumb-active) .thumb {
-  border-color: var(--color-button);
+  border: 3px solid #829b91;
 }
 
-/* стрелки */
-
-.mainSwiper :global(.swiper-button-prev),
-.mainSwiper :global(.swiper-button-next) {
-  width: 44px;
-  height: 44px;
-
-  border-radius: 50%;
-
-  background-color: rgba(16, 24, 40, 0.45);
-
-  transition: background-color 200ms ease;
-}
-
-.mainSwiper :global(.swiper-button-prev:hover),
-.mainSwiper :global(.swiper-button-next:hover) {
-  background-color: rgba(16, 24, 40, 0.7);
-}
-
-.mainSwiper :global(.swiper-button-disabled) {
-  opacity: 0.35;
-}
+/* TABLET */
 
 @media (max-width: 768px) {
   .mainImage {
     height: 420px;
   }
 
+  .thumbsSwiper :global(.swiper-slide) {
+    width: 120px;
+  }
+
   .thumb {
-    height: 90px;
+    width: 120px;
+    height: 126px;
   }
 }
+
+/* MOBILE */
 
 @media (max-width: 375px) {
   .mainImage {
@@ -103,13 +89,12 @@
     margin-top: 16px;
   }
 
-  .thumb {
-    height: 72px;
+  .thumbsSwiper :global(.swiper-slide) {
+    width: 96px;
   }
 
-  .mainSwiper :global(.swiper-button-prev),
-  .mainSwiper :global(.swiper-button-next) {
-    width: 36px;
-    height: 36px;
+  .thumb {
+    width: 96px;
+    height: 102px;
   }
 }

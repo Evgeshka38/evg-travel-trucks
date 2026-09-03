@@ -8,6 +8,7 @@ import {
 } from 'formik';
 import * as Yup from 'yup';
 import toast from 'react-hot-toast';
+import { IoAlertCircleOutline } from 'react-icons/io5';
 
 import { createBookingRequest } from '@/lib/api/campersApi';
 
@@ -30,13 +31,17 @@ const initialValues: BookingFormValues = {
 const validationSchema = Yup.object({
   name: Yup.string()
     .trim()
-    .min(2, 'Name must contain at least 2 characters')
-    .required('Name is required'),
+    .matches(
+      /^[A-Za-zА-Яа-яІіЇїЄєҐґ' -]+$/,
+      'Please enter your name.'
+    )
+    .min(2, 'Please enter your name.')
+    .required('Please enter your name.'),
 
   email: Yup.string()
     .trim()
-    .email('Enter a valid email')
-    .required('Email is required'),
+    .email('Please enter your email.')
+    .required('Please enter your email.'),
 });
 
 export default function BookingForm({
@@ -85,61 +90,115 @@ export default function BookingForm({
           errors,
           touched,
           isSubmitting,
-        }) => (
-          <Form className={css.form}>
-            <div className={css.field}>
-              <Field
-                id="name"
-                name="name"
-                type="text"
-                placeholder="Name*"
-                className={`${css.input} ${
-                  touched.name &&
-                  errors.name
-                    ? css.inputError
-                    : ''
-                }`}
-              />
+        }) => {
+          const nameError =
+            touched.name && errors.name;
 
-              <ErrorMessage
-                name="name"
-                component="p"
-                className={css.error}
-              />
-            </div>
+          const emailError =
+            touched.email && errors.email;
 
-            <div className={css.field}>
-              <Field
-                id="email"
-                name="email"
-                type="email"
-                placeholder="Email*"
-                className={`${css.input} ${
-                  touched.email &&
-                  errors.email
-                    ? css.inputError
-                    : ''
-                }`}
-              />
+          return (
+            <Form className={css.form}>
+              <div className={css.field}>
+                <div
+                  className={`${css.inputWrapper} ${
+                    nameError
+                      ? css.inputWrapperError
+                      : ''
+                  }`}
+                >
+                  {nameError && (
+                    <label
+                      htmlFor="name"
+                      className={css.errorLabel}
+                    >
+                      Name*
+                    </label>
+                  )}
 
-              <ErrorMessage
-                name="email"
-                component="p"
-                className={css.error}
-              />
-            </div>
+                  <Field
+                    id="name"
+                    name="name"
+                    type="text"
+                    placeholder={
+                      nameError
+                        ? ''
+                        : 'Name*'
+                    }
+                    className={css.input}
+                  />
 
-            <button
-              type="submit"
-              className={css.button}
-              disabled={isSubmitting}
-            >
-              {isSubmitting
-                ? 'Sending...'
-                : 'Send'}
-            </button>
-          </Form>
-        )}
+                  {nameError && (
+                    <IoAlertCircleOutline
+                      className={css.errorIcon}
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+
+                <ErrorMessage
+                  name="name"
+                  component="p"
+                  className={css.error}
+                />
+              </div>
+
+              <div className={css.field}>
+                <div
+                  className={`${css.inputWrapper} ${
+                    emailError
+                      ? css.inputWrapperError
+                      : ''
+                  }`}
+                >
+                  {emailError && (
+                    <label
+                      htmlFor="email"
+                      className={css.errorLabel}
+                    >
+                      Email*
+                    </label>
+                  )}
+
+                  <Field
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder={
+                      emailError
+                        ? ''
+                        : 'Email*'
+                    }
+                    className={css.input}
+                  />
+
+                  {emailError && (
+                    <IoAlertCircleOutline
+                      className={css.errorIcon}
+                      aria-hidden="true"
+                    />
+                  )}
+                </div>
+
+                <ErrorMessage
+                  name="email"
+                  component="p"
+                  className={css.error}
+                />
+              </div>
+
+              <button
+                type="submit"
+                className={css.button}
+                disabled={isSubmitting}
+              >
+                {isSubmitting
+                  ? 'Sending...'
+                  : 'Send'}
+              </button>
+            </Form>
+          );
+        }}
       </Formik>
     </section>
   );

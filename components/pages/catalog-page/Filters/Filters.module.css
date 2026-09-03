@@ -1,6 +1,11 @@
 .filters {
   width: 100%;
   max-width: 360px;
+  padding: 24px;
+
+  border-radius: 20px;
+
+  background-color: var(--color-inputs);
 }
 
 .locationGroup {
@@ -21,9 +26,19 @@
 
 .locationWrapper {
   position: relative;
+  background-color: var(--color-white);
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .locationIcon {
+  width: 24px;
+  height: 24px;
+
+  flex-shrink: 0;
+
+  color: var(--color-main);
+  stroke-width: 1.5;
   position: absolute;
   top: 50%;
   left: 18px;
@@ -43,7 +58,7 @@
 
   border-radius: 12px;
 
-  background-color: var(--color-inputs);
+  background-color: var(--color-white);
 
   color: var(--color-main);
 
@@ -160,6 +175,13 @@
 .clearButton:hover,
 .clearButton:focus-visible {
   border-color: var(--color-button);
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
 }
 
 @media (max-width: 768px) {

@@ -9,7 +9,7 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 32px;
 
   width: 100%;
 }
@@ -17,6 +17,8 @@
 .list > li {
   width: 100%;
 }
+
+/* LOAD MORE */
 
 .loadMore {
   display: inline-flex;
@@ -39,6 +41,8 @@
   font-weight: 500;
   line-height: 1.5;
 
+  cursor: pointer;
+
   transition:
     border-color 200ms ease,
     background-color 200ms ease;
@@ -48,6 +52,14 @@
 .loadMore:focus-visible {
   border-color: var(--color-button);
 }
+
+.loadMore:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+/* STATUS */
+
 .status {
   padding: 40px 0;
 
@@ -56,6 +68,137 @@
   font-size: 16px;
   text-align: center;
 }
+
+/* EMPTY STATE */
+
+.emptyState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 640px;
+
+  padding: 40px;
+
+  border-radius: 20px;
+
+  background-color: var(--color-inputs);
+
+  text-align: center;
+}
+
+.emptyImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 32px;
+}
+
+.notFoundImage {
+  display: block;
+
+  width: 320px;
+  height: auto;
+}
+
+.emptyTitle {
+  margin: 0 0 12px;
+
+  color: var(--color-main);
+
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.emptyText {
+  margin: 0;
+
+  color: var(--color-main);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+
+  text-align: center;
+}
+
+/* EMPTY STATE BUTTONS */
+
+.emptyActions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+
+  margin-top: 32px;
+}
+
+.clearButton,
+.viewAllButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  height: 56px;
+
+  padding: 0 28px;
+
+  border-radius: 200px;
+
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+
+  cursor: pointer;
+
+  transition:
+    border-color 200ms ease,
+    background-color 200ms ease;
+}
+
+.clearButton {
+  min-width: 160px;
+
+  border: 1px solid var(--color-border);
+
+  background-color: var(--color-white);
+  color: var(--color-main);
+}
+
+.clearIcon {
+  width: 20px;
+  height: 20px;
+
+  flex-shrink: 0;
+}
+
+.clearButton:hover,
+.clearButton:focus-visible {
+  border-color: var(--color-button);
+}
+
+.viewAllButton {
+  min-width: 160px;
+
+  border: 1px solid var(--color-button);
+
+  background-color: var(--color-button);
+  color: var(--color-white);
+}
+
+.viewAllButton:hover,
+.viewAllButton:focus-visible {
+  border-color: var(--color-button-hover);
+
+  background-color: var(--color-button-hover);
+}
+
+/* TABLET */
 
 @media (max-width: 768px) {
   .list {
@@ -66,10 +209,70 @@
     height: 52px;
     margin-top: 32px;
   }
+
+  .emptyState {
+    min-height: 520px;
+
+    padding: 32px 20px;
+  }
+
+  .notFoundImage {
+    width: 280px;
+  }
+
+  .emptyTitle {
+    font-size: 22px;
+  }
+
+  .emptyActions {
+    margin-top: 28px;
+  }
+
+  .clearButton,
+  .viewAllButton {
+    height: 52px;
+  }
 }
+
+/* MOBILE */
 
 @media (max-width: 600px) {
   .loadMore {
     width: 100%;
+  }
+
+  .emptyState {
+    min-height: 480px;
+
+    padding: 24px 16px;
+  }
+
+  .emptyActions {
+    width: 100%;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .clearButton,
+  .viewAllButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 375px) {
+  .notFoundImage {
+    width: 230px;
+  }
+
+  .emptyImage {
+    margin-bottom: 24px;
+  }
+
+  .emptyTitle {
+    font-size: 20px;
+  }
+
+  .emptyText {
+    font-size: 14px;
   }
 }

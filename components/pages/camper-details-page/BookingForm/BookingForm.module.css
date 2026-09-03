@@ -35,50 +35,141 @@
 }
 
 .field {
-  position: relative;
+  width: 100%;
 }
 
-.input {
+.inputWrapper {
+  position: relative;
+
   width: 100%;
   height: 56px;
 
-  padding: 0 18px;
+  overflow: hidden;
 
   border: 1px solid transparent;
   border-radius: 12px;
 
   background-color: var(--color-inputs);
-  color: var(--color-main);
-
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 1.5;
 
   transition:
     border-color 200ms ease,
     background-color 200ms ease;
 }
 
+.inputWrapper:focus-within {
+  border-color: var(--color-button);
+}
+
+.input {
+  width: 100%;
+  height: 100%;
+
+  padding: 0 18px;
+
+  border: 0;
+  border-radius: inherit;
+  outline: none;
+
+  background-color: transparent;
+  color: var(--color-main);
+
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
 .input::placeholder {
   color: var(--color-gray);
 }
 
-.input:focus {
-  border-color: var(--color-button);
+/* CHROME AUTOFILL */
+
+.input:-webkit-autofill,
+.input:-webkit-autofill:hover,
+.input:-webkit-autofill:focus,
+.input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-main);
+
+  -webkit-box-shadow: 0 0 0 1000px var(--color-inputs) inset;
+
+  box-shadow: 0 0 0 1000px var(--color-inputs) inset;
+
+  caret-color: var(--color-main);
+
+  transition: background-color 9999s ease-out 0s;
 }
 
-.inputError {
-  border-color: #e44848;
+/* VALIDATION ERROR */
+
+.inputWrapperError {
+  border-color: #ff4d4f;
+
+  background-color: #ffe1e1;
+}
+
+.inputWrapperError:focus-within {
+  border-color: #ff4d4f;
+}
+
+.inputWrapperError .input {
+  padding-right: 52px;
+}
+
+.inputWrapperError .input:-webkit-autofill,
+.inputWrapperError .input:-webkit-autofill:hover,
+.inputWrapperError .input:-webkit-autofill:focus,
+.inputWrapperError .input:-webkit-autofill:active {
+  -webkit-text-fill-color: var(--color-main);
+
+  -webkit-box-shadow: 0 0 0 1000px #ffe1e1 inset;
+
+  box-shadow: 0 0 0 1000px #ffe1e1 inset;
+}
+
+.errorLabel {
+  position: absolute;
+  z-index: 2;
+  top: -10px;
+  left: 20px;
+
+  padding: 0 8px;
+
+  border-radius: 8px;
+
+  background-color: #ffe1e1;
+  color: #ff4d4f;
+
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 20px;
+}
+
+.errorIcon {
+  position: absolute;
+  top: 50%;
+  right: 18px;
+
+  width: 24px;
+  height: 24px;
+
+  transform: translateY(-50%);
+
+  color: #ff4d4f;
+
+  pointer-events: none;
 }
 
 .error {
   margin-top: 4px;
 
-  color: #e44848;
+  color: #ff4d4f;
 
-  font-size: 12px;
-  line-height: 1.3;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
 }
+
+/* BUTTON */
 
 .button {
   display: inline-flex;

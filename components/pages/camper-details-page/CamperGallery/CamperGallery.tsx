@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { FreeMode, Navigation, Thumbs } from 'swiper/modules';
+import { FreeMode, Thumbs } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -10,7 +10,6 @@ import type { CamperGalleryItem } from '@/types/camper';
 
 import 'swiper/css';
 import 'swiper/css/free-mode';
-import 'swiper/css/navigation';
 import 'swiper/css/thumbs';
 
 import css from './CamperGallery.module.css';
@@ -34,12 +33,7 @@ export default function CamperGallery({
   return (
     <div className={css.gallery}>
       <Swiper
-        modules={[
-          FreeMode,
-          Navigation,
-          Thumbs,
-        ]}
-        navigation
+        modules={[FreeMode, Thumbs]}
         spaceBetween={16}
         thumbs={{
           swiper:
@@ -69,28 +63,21 @@ export default function CamperGallery({
       {gallery.length > 1 && (
         <Swiper
           onSwiper={setThumbsSwiper}
-          modules={[
-            FreeMode,
-            Navigation,
-            Thumbs,
-          ]}
-          spaceBetween={16}
-          slidesPerView={4}
+          modules={[FreeMode, Thumbs]}
+          spaceBetween={24}
+          slidesPerView="auto"
           freeMode
           watchSlidesProgress
           className={css.thumbsSwiper}
           breakpoints={{
             0: {
-              slidesPerView: 3,
               spaceBetween: 8,
             },
             376: {
-              slidesPerView: 4,
               spaceBetween: 12,
             },
             769: {
-              slidesPerView: 4,
-              spaceBetween: 16,
+              spaceBetween: 24,
             },
           }}
         >
@@ -104,8 +91,8 @@ export default function CamperGallery({
                 <Image
                   src={image.thumb}
                   alt=""
-                  width={142}
-                  height={100}
+                  width={136}
+                  height={144}
                   className={css.image}
                 />
               </button>
