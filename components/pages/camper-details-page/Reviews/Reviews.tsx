@@ -50,6 +50,7 @@ export default function Reviews({
 
                     <div
                       className={css.rating}
+                      role="img"
                       aria-label={`Rating: ${review.reviewer_rating} out of 5`}
                     >
                       {Array.from(
