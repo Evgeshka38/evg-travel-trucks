@@ -31,7 +31,8 @@ export default function CatalogContent() {
   }
 
   return (
-    <div className={css.container}>
+      <div className={css.container}>
+        <h1 className={css.visuallyHidden}>TravelTrucks camper catalog</h1>
       <Filters
         key={filtersResetKey}
         onSearch={handleSearch}
