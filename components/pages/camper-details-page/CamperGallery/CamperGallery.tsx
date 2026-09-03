@@ -53,7 +53,7 @@ export default function CamperGallery({
                 width={648}
                 height={500}
                 className={css.image}
-                priority={index === 0}
+
               />
             </div>
           </SwiperSlide>
