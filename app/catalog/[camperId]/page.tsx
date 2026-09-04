@@ -1,3 +1,5 @@
+import { notFound } from 'next/navigation';
+
 import CamperGallery from '@/components/pages/camper-details-page/CamperGallery/CamperGallery';
 import CamperInfo from '@/components/pages/camper-details-page/CamperInfo/CamperInfo';
 import VehicleDetails from '@/components/pages/camper-details-page/VehicleDetails/VehicleDetails';
@@ -22,10 +24,17 @@ export default async function CamperDetailsPage({
 }: Props) {
   const { camperId } = await params;
 
-  const [camper, reviews] = await Promise.all([
-    getCamperById(camperId),
-    getCamperReviews(camperId),
-  ]);
+  let camper;
+  let reviews;
+
+  try {
+    [camper, reviews] = await Promise.all([
+      getCamperById(camperId),
+      getCamperReviews(camperId),
+    ]);
+  } catch {
+    notFound();
+  }
 
   return (
     <section className={css.page}>
@@ -38,10 +47,7 @@ export default async function CamperDetailsPage({
 
           <div className={css.infoColumn}>
             <CamperInfo camper={camper} />
-
-            <VehicleDetails
-              camper={camper}
-            />
+            <VehicleDetails camper={camper} />
           </div>
         </div>
 
@@ -54,10 +60,7 @@ export default async function CamperDetailsPage({
 
         <div className={css.bottom}>
           <Reviews reviews={reviews} />
-
-          <BookingForm
-            camperId={camper.id}
-          />
+          <BookingForm camperId={camper.id} />
         </div>
       </div>
     </section>
