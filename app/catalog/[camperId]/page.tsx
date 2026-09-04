@@ -45,6 +45,13 @@ export default async function CamperDetailsPage({
           </div>
         </div>
 
+        <h2
+          id="reviews-title"
+          className={css.reviewsTitle}
+        >
+          Reviews
+        </h2>
+
         <div className={css.bottom}>
           <Reviews reviews={reviews} />
 

@@ -1,9 +1,8 @@
 .hero {
   display: flex;
-  align-items: center;
 
   width: 100%;
-  min-height: 640px;
+  min-height: 625px;
 
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.25)),
@@ -29,6 +28,7 @@
 
   width: 100%;
   max-width: 575px;
+  padding-top: 195px;
 }
 
 .title {

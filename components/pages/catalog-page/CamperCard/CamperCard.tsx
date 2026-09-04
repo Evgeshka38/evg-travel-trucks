@@ -41,6 +41,7 @@ export default function CamperCard({
     rating,
     totalReviews,
     location,
+    description,
     engine,
     transmission,
     form,
@@ -91,6 +92,10 @@ export default function CamperCard({
             €{price}
           </p>
         </div>
+
+        <p className={css.description}>
+          {description}
+        </p>
 
         <ul className={css.features}>
           <li className={css.feature}>

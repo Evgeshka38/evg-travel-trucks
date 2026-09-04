@@ -3,11 +3,11 @@
 }
 
 .title {
-  margin-bottom: 24px;
+  margin-bottom: 20px;
 
   color: var(--color-main);
 
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
   line-height: 1.2;
 }
@@ -15,15 +15,16 @@
 .list {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 24px;
 }
 
 .item {
-  padding: 24px;
+  padding: 16px 16px;
 
   border-radius: 20px;
 
   background-color: var(--color-inputs);
+  min-height: 180px;
 }
 
 .header {
@@ -35,22 +36,17 @@
 }
 
 .avatar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  width: 48px;
-  height: 48px;
-
-  flex-shrink: 0;
-
-  border-radius: 50%;
-
   background-color: var(--color-white);
+  width: 60px;
+  height: 60px;
   color: var(--color-button);
-
-  font-size: 18px;
+  border-radius: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
   font-weight: 500;
+  line-height: 1;
+  display: flex;
 }
 
 .name {
@@ -84,6 +80,8 @@
 }
 
 .comment {
+  margin: 0;
+
   color: var(--color-text);
 
   font-size: 16px;
@@ -100,7 +98,7 @@
 
 @media (max-width: 768px) {
   .item {
-    padding: 20px;
+    padding: 16px;
   }
 }
 
@@ -112,5 +110,7 @@
   .avatar {
     width: 44px;
     height: 44px;
+
+    flex-basis: 44px;
   }
 }

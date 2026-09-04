@@ -1,6 +1,6 @@
 .booking {
   width: 100%;
-  padding: 48px;
+  padding: 44px 55px;
 
   border: 1px solid var(--color-border);
   border-radius: 20px;
@@ -31,7 +31,7 @@
 .form {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
 }
 
 .field {
@@ -40,11 +40,9 @@
 
 .inputWrapper {
   position: relative;
-
+  max-width: 527px;
   width: 100%;
-  height: 56px;
-
-  overflow: hidden;
+  height: 60px;
 
   border: 1px solid transparent;
   border-radius: 12px;
@@ -64,7 +62,7 @@
   width: 100%;
   height: 100%;
 
-  padding: 0 18px;
+  padding: 0 14px;
 
   border: 0;
   border-radius: inherit;
@@ -76,6 +74,7 @@
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
+  text-indent: 3px;
 }
 
 .input::placeholder {
@@ -103,7 +102,6 @@
 
 .inputWrapperError {
   border-color: #ff4d4f;
-
   background-color: #ffe1e1;
 }
 
@@ -129,6 +127,7 @@
 .errorLabel {
   position: absolute;
   z-index: 2;
+
   top: -10px;
   left: 20px;
 
@@ -175,11 +174,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-
+  max-width: 527px;
   width: 100%;
   height: 56px;
 
-  margin-top: 8px;
+  margin-top: 6px;
 
   border-radius: 200px;
 

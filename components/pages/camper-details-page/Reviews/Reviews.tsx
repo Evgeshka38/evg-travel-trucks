@@ -13,10 +13,6 @@ export default function Reviews({
 }: ReviewsProps) {
   return (
     <section className={css.reviews}>
-      <h2 className={css.title}>
-        Reviews
-      </h2>
-
       {reviews.length === 0 ? (
         <p className={css.empty}>
           No reviews yet.
