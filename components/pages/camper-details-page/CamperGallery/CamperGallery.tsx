@@ -2,14 +2,13 @@
 
 import Image from 'next/image';
 import { useState } from 'react';
-import { FreeMode, Thumbs } from 'swiper/modules';
+import { Thumbs } from 'swiper/modules';
 import type { Swiper as SwiperType } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
 import type { CamperGalleryItem } from '@/types/camper';
 
 import 'swiper/css';
-import 'swiper/css/free-mode';
 import 'swiper/css/thumbs';
 
 import css from './CamperGallery.module.css';
@@ -33,7 +32,7 @@ export default function CamperGallery({
   return (
     <div className={css.gallery}>
       <Swiper
-        modules={[FreeMode, Thumbs]}
+        modules={[Thumbs]}
         spaceBetween={16}
         thumbs={{
           swiper:
@@ -53,7 +52,6 @@ export default function CamperGallery({
                 width={648}
                 height={500}
                 className={css.image}
-
               />
             </div>
           </SwiperSlide>
@@ -63,20 +61,23 @@ export default function CamperGallery({
       {gallery.length > 1 && (
         <Swiper
           onSwiper={setThumbsSwiper}
-          modules={[FreeMode, Thumbs]}
+          modules={[Thumbs]}
+          slidesPerView={4}
+          slidesPerGroup={1}
           spaceBetween={24}
-          slidesPerView="auto"
-          freeMode
           watchSlidesProgress
           className={css.thumbsSwiper}
           breakpoints={{
             0: {
+              slidesPerView: 3,
               spaceBetween: 8,
             },
             376: {
+              slidesPerView: 3,
               spaceBetween: 12,
             },
             769: {
+              slidesPerView: 4,
               spaceBetween: 24,
             },
           }}

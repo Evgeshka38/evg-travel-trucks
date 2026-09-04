@@ -28,16 +28,12 @@
 .thumbsSwiper {
   width: 100%;
   margin-top: 27px;
-}
 
-.thumbsSwiper :global(.swiper-slide) {
-  width: 136px;
-
-  margin-right: 32px !important;
+  overflow: hidden;
 }
 
 .thumb {
-  width: 136px;
+  width: 100%;
   height: 144px;
 
   padding: 0;
@@ -60,7 +56,7 @@
 }
 
 .thumbsSwiper :global(.swiper-slide-thumb-active) .thumb {
-  border: 3px solid #829b91;
+  border-color: #829b91;
 }
 
 /* TABLET */
@@ -70,12 +66,7 @@
     height: 420px;
   }
 
-  .thumbsSwiper :global(.swiper-slide) {
-    width: 120px;
-  }
-
   .thumb {
-    width: 120px;
     height: 126px;
   }
 }
@@ -91,12 +82,7 @@
     margin-top: 16px;
   }
 
-  .thumbsSwiper :global(.swiper-slide) {
-    width: 96px;
-  }
-
   .thumb {
-    width: 96px;
     height: 102px;
   }
 }
