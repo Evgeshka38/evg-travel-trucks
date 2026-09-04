@@ -74,7 +74,7 @@ export default function CamperCard({
                   aria-hidden="true"
                 />
 
-                {rating} ({totalReviews} Reviews)
+                {rating}({totalReviews} Reviews)
               </span>
 
               <span className={css.location}>

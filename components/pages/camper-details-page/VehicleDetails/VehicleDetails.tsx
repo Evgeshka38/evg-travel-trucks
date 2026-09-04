@@ -6,22 +6,25 @@ type Props = {
   camper: CamperDetails;
 };
 
-function capitalize(
-  value: string
-) {
+function capitalize(value: string) {
   return (
     value.charAt(0).toUpperCase() +
     value.slice(1)
   );
 }
 
-function formatForm(
-  value: string
-) {
+function formatForm(value: string) {
   return value
     .split('_')
     .map(capitalize)
     .join(' ');
+}
+
+function formatUnit(value: string) {
+  return value.replace(
+    /(\d)(m|l)\b/i,
+    '$1 $2'
+  );
 }
 
 export default function VehicleDetails({
@@ -76,28 +79,38 @@ export default function VehicleDetails({
 
         <div className={css.row}>
           <dt>Length</dt>
-          <dd>{camper.length}</dd>
+          <dd>
+            {formatUnit(camper.length)}
+          </dd>
         </div>
 
         <div className={css.row}>
           <dt>Width</dt>
-          <dd>{camper.width}</dd>
+          <dd>
+            {formatUnit(camper.width)}
+          </dd>
         </div>
 
         <div className={css.row}>
           <dt>Height</dt>
-          <dd>{camper.height}</dd>
+          <dd>
+            {formatUnit(camper.height)}
+          </dd>
         </div>
 
         <div className={css.row}>
           <dt>Tank</dt>
-          <dd>{camper.tank}</dd>
+          <dd>
+            {formatUnit(camper.tank)}
+          </dd>
         </div>
 
         <div className={css.row}>
           <dt>Consumption</dt>
           <dd>
-            {camper.consumption}
+            {formatUnit(
+              camper.consumption
+            )}
           </dd>
         </div>
       </dl>
