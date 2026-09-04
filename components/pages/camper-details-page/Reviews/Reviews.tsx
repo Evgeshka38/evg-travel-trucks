@@ -12,7 +12,7 @@ export default function Reviews({
   reviews,
 }: ReviewsProps) {
   return (
-    <section className={css.reviews}>
+    <div className={css.reviews}>
       {reviews.length === 0 ? (
         <p className={css.empty}>
           No reviews yet.
@@ -84,6 +84,6 @@ export default function Reviews({
           })}
         </ul>
       )}
-    </section>
+    </div>
   );
 }
